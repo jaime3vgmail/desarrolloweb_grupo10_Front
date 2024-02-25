@@ -1,0 +1,62 @@
+
+<div class="container col-12 col-sm-12 col-md-4 ">
+    <div class="row mt-4">
+      <div class="col-6">
+        <img class="main-logo" src="./assets/img/Logo UNIMINUTO white-03.png" style="width:400px">
+      </div>
+      <div class="col-6">
+        <h2>Desarrollo Web Grupo 10</h2>
+      </div>
+    </div>  
+    <div class="register-form border border-2 rounded p-6 bg-light">
+      <form [formGroup]="form" class="custom-form" (ngSubmit)="onSubmit()">
+        <div class="form-group m-2">
+          <label class="m-2" for="inputUsuario">Usuario</label>
+          <input type="text"  (ngModel)="usuario" class="form-control" id="inputUsuario" placeholder="Usuario">         
+        </div>
+        <div class="form-group m-2">
+          <label class="m-2" for="exampleInputPassword1">Contraseña</label>
+          <input type="password" (ngModel)="contrasena" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+        </div>
+        <div class="row m-2">
+            <div class="col-6">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+            </div>
+            <div class="col-6">
+              <a href="#!">Olvido Contraseña?</a>
+            </div>        
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-block m-3" >Ingresar</button>
+        <div class="m-3 ft15 alert alert-danger" *ngIf="messageLogin!=''">
+          {{messageLogin}}
+        </div>
+
+        <!-- Register buttons -->
+        <div class="text-center  m-2">
+          <p>No eres miembro? <a href="#!">Registrarse</a></p>
+          <p>or registrarse con:</p>
+          
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="bi bi-facebook"></i>
+          </button>
+
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="bi bi-google"></i>
+          </button>
+
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="bi bi-twitter-x"></i>
+          </button>
+
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="bi bi-github"></i>
+          </button>
+        </div>
+
+
+      </form>
+    </div> 
+</div>
+
