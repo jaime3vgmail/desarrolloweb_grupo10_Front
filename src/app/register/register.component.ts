@@ -37,25 +37,29 @@ export class RegisterComponent {
       
       this.messageLogin="";
       
-      // var urlApi = "localhost:9091/loginapp/api/users/login";
-      var urlApi = "https://accepted-tortoise-remarkably.ngrok-free.app/loginapp/api/users/create";
+      var urlApi = "http://localhost:9091/loginapp/api/users/create";
+      // var urlApi = "https://accepted-tortoise-remarkably.ngrok-free.app/loginapp/api/users/create";
       var httpOptions = {
           headers: new HttpHeaders({
             'Content-Type': 'application/json',          
           })
         };      
       let json = {
-        userName: this.userName,
-        userEmail: this.userEmail,
-        userLogin: this.userLogin,
-        userPassword: this.userPassword
+        userName: this.form.controls["userName"].value,   
+        userEmail: this.form.controls["userEmail"].value,
+        userLogin: this.form.controls["userLogin"].value,
+        userPassword: this.form.controls["userPassword"].value,
       };
       
       this.http.post<any>(urlApi, json, httpOptions).subscribe({
         next: (response:any) =>  {  
-            if (response.code==200)
+            if (response.code==201)
             {
-              this.messageLogin="Usuario ingresado correctamente";           
+              this.messageLogin="Usuario ingresado correctamente";  
+              this.form.controls["userName"].setValue('');
+              this.form.controls["userEmail"].setValue('');
+              this.form.controls["userLogin"].setValue('');
+              this.form.controls["userPassword"].setValue('');
             }
             else
             {

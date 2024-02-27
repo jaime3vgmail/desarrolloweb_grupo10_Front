@@ -12,11 +12,11 @@
       <form [formGroup]="form" class="custom-form" (ngSubmit)="onSubmit()">
         <div class="form-group m-2">
           <label class="m-2" for="inputUsuario">Usuario</label>
-          <input type="text"  (ngModel)="usuario" class="form-control" id="inputUsuario" placeholder="Usuario">         
+          <input type="text"  formControlName="usuario" class="form-control" id="inputUsuario" placeholder="Usuario">         
         </div>
         <div class="form-group m-2">
           <label class="m-2" for="exampleInputPassword1">Contraseña</label>
-          <input type="password" (ngModel)="contrasena" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+          <input type="password" formControlName="contrasena" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
         </div>
         <div class="row m-2">
             <div class="col-6">
@@ -35,7 +35,7 @@
 
         <!-- Register buttons -->
         <div class="text-center  m-2">
-          <p>No eres miembro? <a href="#!">Registrarse</a></p>
+          <p>No eres miembro? <a href="register">Registrarse</a></p>
           <p>or registrarse con:</p>
           
           <button type="button" class="btn btn-link btn-floating mx-1">

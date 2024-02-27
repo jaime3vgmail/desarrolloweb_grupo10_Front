@@ -22,7 +22,7 @@ export class LoginComponent {
       {      
         
         usuario: ['',Validators.required],
-        tipoDocumento: ['', Validators.required]
+        contrasena: ['', Validators.required]
       });      
   }
 
@@ -32,16 +32,16 @@ export class LoginComponent {
       
       this.messageLogin="";
       
-      // var urlApi = "localhost:9091/loginapp/api/users/login";
-      var urlApi = "https://accepted-tortoise-remarkably.ngrok-free.app/loginapp/api/users/login";
+      var urlApi = "http://localhost:9091/loginapp/api/users/login";
+      // var urlApi = "https://accepted-tortoise-remarkably.ngrok-free.app/loginapp/api/users/login";
       var httpOptions = {
           headers: new HttpHeaders({
             'Content-Type': 'application/json',          
           })
         };      
       let json = {
-        userLogin: this.usuario,
-        contrasena: this.contrasena
+        userLogin: this.form.controls["usuario"].value,
+        userPassword: this.form.controls["contrasena"].value
       };    
    
       
@@ -49,7 +49,7 @@ export class LoginComponent {
         next: (response:any) =>  {  
             if (response.code==200)
             {
-              this.router.navigate(['listarUsuarios']);                 
+              this.router.navigate(['listUsers']);                 
             }
             else
             {
