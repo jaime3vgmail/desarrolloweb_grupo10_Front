@@ -73,5 +73,30 @@ export class ListUsersComponent {
     }
   }
 
+  abrirUpdate(element:any)
+  {
+    try
+    {
+      let id = element.userId;
+      this.router.navigate(['/', 'update', id] );
+    }
+    catch(error)
+    {
+      console.log(error);
+    }
+  }
+
+  desactivar(element:any)
+  {
+    try
+    {
+      let id = element.userId;
+      this.router.navigate(['update'], { queryParams: { id:id } });   
+    }
+    catch(error)
+    {
+      console.log(error);
+    }
+  }
   
 }

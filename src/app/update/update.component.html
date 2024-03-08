@@ -1,0 +1,43 @@
+
+<div class="container col-12 col-sm-12 col-md-4 ">
+    <div class="row mt-4">
+      <div class="col-6">
+        <img class="main-logo" src="./assets/img/Logo UNIMINUTO white-03.png" style="width:400px">
+      </div>
+      <div class="col-6">
+        <h2>Actualizar</h2>
+      </div>
+    </div>  
+    <div class="register-form border border-2 rounded p-6 bg-light">
+      <form [formGroup]="form" class="custom-form" (ngSubmit)="onSubmit()">
+        <div class="form-group m-2">
+          <label class="m-2" for="inputNombre">Nombre</label>
+          <input type="text"  formControlName="userName" class="form-control" id="inputNombre" placeholder="Usuario">         
+        </div>
+        <div class="form-group m-2">
+          <label class="m-2" for="inputCorreo">Correo Electronico</label>
+          <input type="email" formControlName="userEmail" class="form-control" id="inputCorreo" placeholder="Correo Electronico">
+        </div>
+        <div class="form-group m-2">
+            <label class="m-2" for="inputUsuario">Usuario</label>
+            <input type="text" formControlName="userLogin" class="form-control" id="inputUsuario" placeholder="Usuario">
+          </div>
+          <div class="form-group m-2">
+            <label class="m-2" for="inputPassword">Contraseña</label>
+            <input type="password" formControlName="userPassword" class="form-control" id="inputPassword" placeholder="Contraseña">
+          </div>
+          <div class="form-group m-2">
+            <label class="m-2" for="inputuserState">Estado</label>
+            <input type="checkbox" formControlName="userState" id="inputuserState" placeholder="Estado">
+          </div>
+       
+        
+        <button type="submit" class="btn btn-primary btn-block m-3" >Actualizar</button>
+        <div class="m-3 ft15 alert alert-danger" *ngIf="messageLogin!=''">
+          {{messageLogin}}
+        </div>       
+
+      </form>
+    </div> 
+</div>
+
